@@ -23,7 +23,7 @@ from django.urls import path, include
 from simplemooc.core import views, urls
 from simplemooc.courses import views, urls
 from django.conf import settings
-#from django.conf.urls.static import static
+from django.conf.urls.static import static
 
 
 
@@ -40,4 +40,8 @@ urlpatterns = [
   #  path('forum/', include('simplemooc.forum.urls', namespace='Forum')),
 	
     path('admin/', admin.site.urls),
+
 ] 
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    

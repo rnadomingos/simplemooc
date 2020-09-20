@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 #MODO SIMPLES DE USAR QUERY_SET ** SEPARANDO O *_ICONTENS POR VIRGULA, O DJANGO CONSIDERA AND NA QUERY
@@ -22,6 +23,7 @@ class Course(models.Model):
     name = models.CharField(("Nome"), max_length=100)
     slug = models.SlugField('Atalho')
     description = models.TextField('Descrição', blank=True)
+    about = models.TextField('Sobre o Curso', blank=True)
     start_date = models.DateField(
         'Data de Início', null=True, blank=True
     )
@@ -34,7 +36,13 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
-    
+
+    def get_absolute_url(self):
+        return reverse(
+            'courses:details', 
+            args=[self.slug])
+
+
     class Meta:
         verbose_name = 'Curso'
         verbose_name_plural = 'Cursos'
