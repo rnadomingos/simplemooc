@@ -124,5 +124,32 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = BASE_DIR / 'simplemooc/media'
-
 MEDIA_URL =  '/media/'
+
+
+# Emails
+
+# Conf para envio de Emails
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Console mail ** apenas para desenvolvimento / teste
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# MODELO DE CONF EMAIL
+
+# DEFAULT_FROM_EMAIL = 'Nome <email@gmail.com'>
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'email@gmail.com'
+# EMAIL_HOST_PASSWORD = 'senha'
+# EMAIL_PORT = 587
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'Nome <email@gmail.com>'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'email@gmail.com'
+EMAIL_HOST_PASSWORD = 'senha'
+EMAIL_PORT = 587
+
+CONTACT_MAIL = 'contato@simplemooc.com'
