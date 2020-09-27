@@ -22,6 +22,7 @@ from django.contrib import admin
 from django.urls import path, include
 from simplemooc.core import views, urls
 from simplemooc.courses import views, urls
+from simplemooc.accounts import views, urls
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -36,7 +37,7 @@ from django.conf.urls.static import static
 urlpatterns = [
 	path('', include('simplemooc.core.urls', namespace='Core')),
     path('cursos/', include('simplemooc.courses.urls', namespace='Courses')),
-  #  path('conta/', include('simplemooc.accounts.urls', namespace='Accounts')),
+    path('conta/', include('simplemooc.accounts.urls', namespace='Accounts')),
   #  path('forum/', include('simplemooc.forum.urls', namespace='Forum')),
 	
     path('admin/', admin.site.urls),
