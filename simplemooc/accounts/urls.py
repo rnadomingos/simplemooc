@@ -8,5 +8,6 @@ app_name='accounts'
 
 urlpatterns = [
         url(r'^entrar/$', LoginView.as_view(), name='login'), 
+        url(r'^cadastre-se/$', views.register, name='register'), 
 
-]
+]       
