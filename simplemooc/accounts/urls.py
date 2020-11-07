@@ -12,5 +12,6 @@ urlpatterns = [
         url(r'^cadastre-se/$', views.register, name='register'), 
         url(r'^sair/$', LogoutView.as_view(next_page='core:home'), name='logout'),
         url(r'^editar$', views.edit, name='edit'), 
+        url(r'^editar-senha$', views.edit_password, name='edit_password'), 
 
 ]               
