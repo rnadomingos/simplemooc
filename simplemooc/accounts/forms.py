@@ -24,6 +24,19 @@ User = get_user_model()
 #             user.save()
 #         return user 
 
+class PasswordResetForm(forms.Form):
+
+    email = forms.EmailField(label='E-mail', required=False)
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.filter(email=email).exists():
+            return email
+        raise forms.ValidationError(
+            'Nenhum usuário cadastrado com este e-mail'
+        )
+
+
 class RegisterForm(forms.ModelForm):
 
     password1 = forms.CharField(label='Senha', widget=forms.PasswordInput)
